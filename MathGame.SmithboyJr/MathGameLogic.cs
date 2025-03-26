@@ -8,7 +8,7 @@ namespace MathGame
     {
 
         // List to store game history
-        static List<string> gameHistory { get; set; } = new List<string>();
+        static List<string> GameHistory { get; set; } = new List<string>();
         // Default difficulty is 10 (easy)
         static int difficultyLevel = 10;
         // Random number generator
@@ -185,7 +185,7 @@ namespace MathGame
                 stopwatch.Stop();
                 string result = userAnswer == correctAnswer ? "Correct!" : $"Incorrect. The correct answer was {correctAnswer}.";
                 string historyEntry = $"{operationSymbol} Problem: {problem} | Your Answer: {userAnswer} | {result} | Time: {stopwatch.Elapsed.TotalSeconds:F2} seconds";
-                gameHistory.Add(historyEntry);
+                GameHistory.Add(historyEntry);
 
                 Console.WriteLine(result);
                 Console.WriteLine($"Time taken: {stopwatch.Elapsed.TotalSeconds:F2} seconds.");
@@ -212,13 +212,13 @@ namespace MathGame
         {
             Console.Clear();
             Console.WriteLine("Game History:");
-            if (gameHistory.Count == 0)
+            if (GameHistory.Count == 0)
             {
                 Console.WriteLine("No games played yet.");
             }
             else
             {
-                foreach (var entry in gameHistory)
+                foreach (var entry in GameHistory)
                 {
                     Console.WriteLine(entry);
                 }
